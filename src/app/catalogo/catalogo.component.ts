@@ -29,7 +29,7 @@ const NAMES: string[] = [
   styleUrls: ['./catalogo.component.css']
 })
 export class CatalogoComponent implements AfterViewInit  {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  displayedColumns: string[] = ['id', 'name', 'progress', 'color', 'actions'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
