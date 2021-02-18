@@ -10,6 +10,9 @@ import { MaterialModule } from './material/material.module';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     NavComponent,
     CatalogoComponent,
     ProductDetailComponent,
+    ProductFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     LayoutModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

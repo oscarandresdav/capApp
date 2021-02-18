@@ -4,7 +4,7 @@
     <mat-card-subtitle>Inventario de productos</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-
+    <a mat-raised-button [routerLink]="['/catalogo/nuevo']">Nuevo</a>
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo... deportiva" #input />
