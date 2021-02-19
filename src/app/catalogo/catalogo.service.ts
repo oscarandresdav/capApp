@@ -23,7 +23,7 @@ export class CatalogoService {
   }
 
   updateProduct(id: string, changes: Partial<Catalogo>){
-    return this.http.put(`${environment.api_url}/catalog/${id}`, changes);
+    return this.http.patch(`${environment.api_url}/catalog/${id}`, changes);
   }
 
   deleteProduct(id: string) {

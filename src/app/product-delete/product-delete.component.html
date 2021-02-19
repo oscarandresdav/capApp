@@ -1,0 +1,14 @@
+<mat-card *ngIf="product">
+  <mat-card-header>
+    <mat-card-title>
+      Eliminar producto.
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Estas <strong>seguro</strong> que deseas eliminar del catalogo al producto <strong>{{product.name}}</strong></p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="onDelete()">SI</button>
+    <button mat-raised-button color="primary" (click)="onBack()">NO</button>
+  </mat-card-actions>
+</mat-card>
