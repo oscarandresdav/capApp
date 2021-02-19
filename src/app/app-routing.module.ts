@@ -11,10 +11,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'catalogo', component: CatalogoComponent },
   { path: 'catalogo/nuevo', component: ProductFormComponent },
-  { path: 'catalogo/edit/:id', component: ProductEditComponent },
-  { path: 'catalogo/delete/:id', component: ProductDeleteComponent },
+  { path: 'catalogo/editar/:id', component: ProductEditComponent },
+  { path: 'catalogo/eliminar/:id', component: ProductDeleteComponent },
   { path: 'catalogo/:id', component: ProductDetailComponent },
-  { path: '', redirectTo: '/catalogo', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
