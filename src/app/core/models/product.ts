@@ -1,4 +1,4 @@
-export interface Catalogo {
+export interface Product {
   name: string;
   detail?: string;
   stock: number;

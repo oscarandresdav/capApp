@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyValidators } from 'src/utils/validators';
-import { CatalogoService } from '../../services/catalogo.service';
+import { ProductService } from '../../../core/services/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -14,7 +14,7 @@ export class ProductFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private catalogoService: CatalogoService,
+    private catalogoService: ProductService,
     private router: Router
   ) {
     this.buildForm();

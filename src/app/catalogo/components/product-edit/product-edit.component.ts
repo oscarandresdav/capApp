@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MyValidators } from 'src/utils/validators';
-import { CatalogoService } from '../../services/catalogo.service';
+import { ProductService } from '../../../core/services/product.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -15,9 +15,9 @@ export class ProductEditComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private catalogoService: CatalogoService,
+    private catalogoService: ProductService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute
   ) {
     this.buildForm();
   }
@@ -25,22 +25,22 @@ export class ProductEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = params.id;
-      this.catalogoService.getProduct(this.id)
-      .subscribe(product => {
+      this.catalogoService.getProduct(this.id).subscribe((product) => {
         this.form.patchValue(product);
-      })
-    })
+      });
+    });
   }
 
   saveProduct(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
       const product = this.form.value;
-      this.catalogoService.updateProduct(this.id, product)
-      .subscribe((newProduct) => {
-        console.log(newProduct);
-        this.router.navigate(['./catalogo']);
-      });
+      this.catalogoService
+        .updateProduct(this.id, product)
+        .subscribe((newProduct) => {
+          console.log(newProduct);
+          this.router.navigate(['./catalogo']);
+        });
     }
     console.log(this.form.value);
   }

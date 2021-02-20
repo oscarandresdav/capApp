@@ -2,30 +2,28 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Catalogo } from '../../models/catalogo';
-import { CatalogoService } from '../../services/catalogo.service';
+import { Product } from '../../../core/models/product';
+import { ProductService } from '../../../core/services/product.service';
 
 @Component({
-  selector: 'app-catalogo',
-  templateUrl: './catalogo.component.html',
-  styleUrls: ['./catalogo.component.css'],
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css'],
 })
-export class CatalogoComponent implements OnInit {
+export class ProductListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'stock', 'cost', 'actions'];
-  dataSource: MatTableDataSource<Catalogo>;
+  dataSource: MatTableDataSource<Product>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  products: Catalogo[] = [];
+  products: Product[] = [];
 
-  constructor(private catalogoService: CatalogoService) {
-  }
+  constructor(private catalogoService: ProductService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.fetchProducts();
   }
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -41,7 +39,7 @@ export class CatalogoComponent implements OnInit {
       this.products = products;
       this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+      this.dataSource.sort = this.sort;
     });
   }
 }

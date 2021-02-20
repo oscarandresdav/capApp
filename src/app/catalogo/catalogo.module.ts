@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CatalogoRoutingModule } from './catalogo-routing.module';
-import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDeleteComponent } from './components/product-delete/product-delete.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    CatalogoComponent,
+    ProductListComponent,
     ProductDeleteComponent,
     ProductDetailComponent,
     ProductEditComponent,

@@ -8,12 +8,14 @@
 body,
 html {
   height: 100%;
-  font-family: Poppins-Regular, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 /*---------------------------------------------*/
 a {
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -48,7 +50,8 @@ h6 {
 }
 
 p {
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -147,14 +150,16 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 13px;
   color: #666666;
   line-height: 1.5;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 13px;
   color: #333333;
   line-height: 1.5;
@@ -206,7 +211,8 @@ iframe {
 
 .login100-form-title {
   display: block;
-  font-family: Poppins-Bold;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
@@ -227,7 +233,8 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -272,7 +279,8 @@ iframe {
 }
 
 .focus-input100::after {
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   color: #999999;
   line-height: 1.2;
@@ -395,7 +403,8 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Poppins-Medium;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   font-size: 15px;
   color: #fff;
   line-height: 1.2;
@@ -450,7 +459,8 @@ iframe {
   right: 0px;
   pointer-events: none;
 
-  font-family: Poppins-Regular;
+ font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

@@ -19,14 +19,14 @@
             <i class="zmdi zmdi-eye"></i>
           </span>
           <input class="input100" type="password" name="pass">
-          <span class="focus-input100" data-placeholder="Password"></span>
+          <span class="focus-input100" data-placeholder="Contraseña"></span>
         </div>
 
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
-            <button class="login100-form-btn">
-              Login
+            <button class="login100-form-btn" [routerLink]="['/catalogo']">
+              Ingresar
             </button>
           </div>
         </div>
@@ -36,7 +36,7 @@
             No tienes cuenta?
           </span>
 
-          <a class="txt2" [routerLink]="['/registro']">
+          <a class="txt2" [routerLink]="['./registro']">
             Registrese
           </a>
         </div>

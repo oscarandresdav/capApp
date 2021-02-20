@@ -1,28 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Catalogo } from '../models/catalogo';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogoService {
+export class ProductService {
 
   constructor(private http: HttpClient) { }
 
   getAllProducts(){
-    return this.http.get<Catalogo[]>(`${environment.api_url}/catalog`);
+    return this.http.get<Product[]>(`${environment.api_url}/catalog`);
   }
 
   getProduct(id: string) {
-    return this.http.get<Catalogo>(`${environment.api_url}/catalog/${id}`);
+    return this.http.get<Product>(`${environment.api_url}/catalog/${id}`);
   }
 
-  createProduct(product: Catalogo){
+  createProduct(product: Product){
     return this.http.post(`${environment.api_url}/catalog`, product);
   }
 
-  updateProduct(id: string, changes: Partial<Catalogo>){
+  updateProduct(id: string, changes: Partial<Product>){
     return this.http.patch(`${environment.api_url}/catalog/${id}`, changes);
   }
 

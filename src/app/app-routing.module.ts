@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'catalogo',
+    canActivate: [AdminGuard],
     loadChildren: () =>
     import('./catalogo/catalogo.module').then((m) => m.CatalogoModule),
+  },
+  {
+    path: '',
+    redirectTo: '/catalogo',
+    pathMatch: 'full'
   },
   {
     path: '**',
@@ -23,7 +28,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      preloadingStrategy: PreloadAllModules
+    }
+    )],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
