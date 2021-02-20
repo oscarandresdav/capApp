@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MyValidators } from 'src/utils/validators';
-import { CatalogoService } from '../catalogo/catalogo.service';
+import { CatalogoService } from '../../services/catalogo.service';
 
 @Component({
   selector: 'app-product-edit',

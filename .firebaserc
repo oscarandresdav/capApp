@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "capapp-3b2bf": {
+      "hosting": {
+        "capApp": [
+          "capapp-3b2bf"
+        ]
+      }
+    }
+  }
+}

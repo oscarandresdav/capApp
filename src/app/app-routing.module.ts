@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogoComponent } from './catalogo/catalogo.component';
-import { LoginComponent } from './login/login.component';
-import { ProductDeleteComponent } from './product-delete/product-delete.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { ProductFormComponent } from './product-form/product-form.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'catalogo', component: CatalogoComponent },
-  { path: 'catalogo/nuevo', component: ProductFormComponent },
-  { path: 'catalogo/editar/:id', component: ProductEditComponent },
-  { path: 'catalogo/eliminar/:id', component: ProductDeleteComponent },
-  { path: 'catalogo/:id', component: ProductDetailComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'catalogo',
+    loadChildren: () =>
+    import('./catalogo/catalogo.module').then((m) => m.CatalogoModule),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundModule
+      ),
+  },
 ];
 
 @NgModule({

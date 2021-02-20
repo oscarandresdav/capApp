@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyValidators } from 'src/utils/validators';
-import { CatalogoService } from '../catalogo/catalogo.service';
+import { CatalogoService } from '../../services/catalogo.service';
 
 @Component({
   selector: 'app-product-form',
@@ -12,7 +12,11 @@ import { CatalogoService } from '../catalogo/catalogo.service';
 export class ProductFormComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private catalogoService:CatalogoService, private router:Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private catalogoService: CatalogoService,
+    private router: Router
+  ) {
     this.buildForm();
   }
 
@@ -22,11 +26,10 @@ export class ProductFormComponent implements OnInit {
     event.preventDefault();
     if (this.form.valid) {
       const product = this.form.value;
-      this.catalogoService.createProduct(product)
-        .subscribe((newProduct) => {
-          console.log(newProduct);
-          this.router.navigate(['./catalogo']);
-      })
+      this.catalogoService.createProduct(product).subscribe((newProduct) => {
+        console.log(newProduct);
+        this.router.navigate(['./catalogo']);
+      });
     }
     console.log(this.form.value);
   }
@@ -42,7 +45,7 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  get priceField(){
+  get priceField() {
     return this.form.get('price');
   }
 }
