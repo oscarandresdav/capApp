@@ -10,8 +10,12 @@
   <mat-card-content>
     <table>
       <tr>
-        <td class="title">Existencias:</td>
-        <td>{{product.stock}}</td>
+        <td class="title">Stock Local:</td>
+        <td>{{product.stock_office}}</td>
+      </tr>
+      <tr>
+        <td class="title">Stock Bodega:</td>
+        <td>{{product.stock_warehouse}}</td>
       </tr>
       <tr>
         <td class="title">Costo:</td>
@@ -20,6 +24,10 @@
       <tr>
         <td class="title">Precio publico (PVP):</td>
         <td>{{ product.price | currency }}</td>
+      </tr>
+      <tr>
+        <td class="title">Imagen:</td>
+        <td><img class="image" [src]="product.image" alt=""></td>
       </tr>
       <tr>
         <td class="title">Revisión #:</td>

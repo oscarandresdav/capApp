@@ -22,7 +22,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Inventario</span>
+      <button mat-button (click)="mainPage()">Inventario</button>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

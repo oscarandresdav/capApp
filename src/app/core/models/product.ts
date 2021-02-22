@@ -1,8 +1,9 @@
 export interface Product {
   name: string;
   detail?: string;
-  stock: number;
-  minimum_stock_level?: number;
+  stock_office: number;
+  stock_warehouse?: number;
   cost: number;
   price?: number;
+  image?: string;
 }

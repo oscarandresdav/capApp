@@ -7,3 +7,6 @@ td {
   padding: .5em;
 }
 
+.image {
+  max-width: 20vw;
+}

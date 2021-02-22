@@ -29,4 +29,14 @@ export class NavComponent {
       this.router.navigate(['/login']);
     });
   }
+
+  mainPage() {
+    if (this.authService.hasUser) {
+      this.router.navigate(['/catalogo']);
+    }
+    else
+    {
+      this.router.navigate(['/login']);
+    }
+  }
 }

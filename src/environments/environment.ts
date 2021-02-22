@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://capbck.herokuapp.com',
+  api_url: 'http://localhost:3000',
   firebase: {
     apiKey: 'AIzaSyDXd0BOuPRsUMYQVMuQCAqk6coYO_4jqSk',
     authDomain: 'capapp-3b2bf.firebaseapp.com',
