@@ -9,6 +9,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductDeleteComponent,
     ProductDetailComponent,
     ProductEditComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
