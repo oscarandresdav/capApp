@@ -1,1 +1,305 @@
-<p>products works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Catalogo</mat-card-title>
+    <mat-card-subtitle>
+      <p>Inventario de productos</p>
+      <div class="text-left mb-4">
+        <button class="btn btn-primary" (click)="openModal(popup, null)">
+          <i class="fa fa-plus"></i> Nuevo
+        </button>
+      </div>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ejemplo... deportiva"
+        #input
+      />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+          <td mat-cell *matCellDef="let row">
+            <a (click)="openModal(popupview, row.id)">{{ row.name }}</a>
+          </td>
+        </ng-container>
+
+        <!-- Cost Column -->
+        <ng-container matColumnDef="cost">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Costo</th>
+          <td mat-cell *matCellDef="let row">{{ row.cost | currency }}</td>
+        </ng-container>
+
+        <!-- Stock Warehouse Column -->
+        <ng-container matColumnDef="stock_warehouse">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Bodega</th>
+          <td mat-cell *matCellDef="let row">{{ row.stock_warehouse }}</td>
+        </ng-container>
+
+        <!-- Stock Warehouse Column -->
+        <ng-container matColumnDef="stock_office">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Stock</th>
+          <td mat-cell *matCellDef="let row">{{ row.stock_office }}</td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>PVP</th>
+          <td mat-cell *matCellDef="let row">{{ row.price | currency }}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="button-row">
+              <div class="flex-container">
+                <div class="button-container">
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    (click)="openModal(popup, row.id)"
+                  >
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button
+                    mat-icon-button
+                    color="warn"
+                    (click)="openModal(popupdelete, row.id)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSize]="25"
+        [pageSizeOptions]="[10, 25, 50, 100]"
+      ></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #popup let-d="dismiss">
+  <div class="modal-header text-primary">
+    {{ productDetail ? "Actualizar" : "Nuevo" }} producto
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          class="form-control"
+          [ngClass]="{
+            'error-border': !form.get('name').valid && form.get('name').dirty
+          }"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="cost">Costo</label>
+        <input
+          id="cost"
+          type="number"
+          formControlName="cost"
+          class="form-control"
+          [ngClass]="{
+            'error-border': !form.get('cost').valid && form.get('cost').dirty
+          }"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Precio (PVP)</label>
+        <input
+          id="price"
+          type="number"
+          formControlName="price"
+          class="form-control"
+          [ngClass]="{
+            'error-border': !form.get('price').valid && form.get('price').dirty
+          }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="stock_office">Stock local</label>
+        <input
+          id="stock_office"
+          type="number"
+          formControlName="stock_office"
+          class="form-control"
+          [ngClass]="{
+            'error-border':
+              !form.get('stock_office').valid && form.get('stock_office').dirty
+          }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="stock_warehouse">Stock bodega</label>
+        <input
+          id="stock_warehouse"
+          type="number"
+          formControlName="stock_warehouse"
+          class="form-control"
+          [ngClass]="{
+            'error-border':
+              !form.get('stock_warehouse').valid &&
+              form.get('stock_warehouse').dirty
+          }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="detail">Detalle</label>
+        <input
+          id="detail"
+          type="text"
+          formControlName="detail"
+          class="form-control"
+          [ngClass]="{
+            'error-border':
+              !form.get('detail').valid && form.get('detail').dirty
+          }"
+        />
+      </div>
+    </form>
+
+    <div class="text-center">
+      <button
+        class="btn btn-primary btn-sm pl-4 pr-4 mr-2"
+        [disabled]="!form.valid"
+        (click)="
+          productDetail ? updateProduct(productDetail.id) : addProduct(); d()
+        "
+      >
+        Guardar
+      </button>
+      <button class="btn btn-secondary btn-sm pl-4 pr-4 ml-2" (click)="d()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popupview let-d="dismiss">
+  <div class="modal-header text-primary">Detalle del producto</div>
+
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          class="form-control"
+          readonly
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="cost">Costo</label>
+        <input
+          id="cost"
+          type="number"
+          formControlName="cost"
+          class="form-control"
+          readonly
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Precio (PVP)</label>
+        <input
+          id="price"
+          type="number"
+          formControlName="price"
+          class="form-control"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="stock_office">Stock local</label>
+        <input
+          id="stock_office"
+          type="number"
+          formControlName="stock_office"
+          class="form-control"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="stock_warehouse">Stock bodega</label>
+        <input
+          id="stock_warehouse"
+          type="number"
+          formControlName="stock_warehouse"
+          class="form-control"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="detail">Detalle</label>
+        <input
+          id="detail"
+          type="text"
+          formControlName="detail"
+          class="form-control"
+          readonly
+        />
+      </div>
+    </form>
+
+    <div class="text-center">
+      <button class="btn btn-secondary btn-sm pl-4 pr-4 ml-2" (click)="d()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popupdelete let-d="dismiss">
+  <div class="modal-header text-primary">Eliminar producto</div>
+
+  <div class="modal-body">
+    <p>Estas <strong>seguro</strong> que deseas eliminar del catalogo al producto <strong>{{productDetail.name}}</strong></p>
+
+    <div class="text-center">
+      <button
+        class="btn btn-primary btn-sm pl-4 pr-4 mr-2"
+        (click)="
+          deleteProduct(productDetail.id); d()
+        "
+      >
+        Eliminar
+      </button>
+      <button class="btn btn-secondary btn-sm pl-4 pr-4 ml-2" (click)="d()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</ng-template>

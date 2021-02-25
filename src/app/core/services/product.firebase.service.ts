@@ -26,4 +26,6 @@ export class ProductFirebaseService {
   deleteProduct(id: string) {
     return this.firestore.doc(`product/${id}`).delete();
   }
+
+
 }

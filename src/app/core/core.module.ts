@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService } from './services/product.service';
+import { ProductFirebaseService } from './services/product.firebase.service';
 
 
 
@@ -10,7 +10,7 @@ import { ProductService } from './services/product.service';
     CommonModule
   ],
   providers: [
-    ProductService
+    ProductFirebaseService
   ]
 })
 export class CoreModule { }

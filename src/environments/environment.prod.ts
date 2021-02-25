@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
-  api_url: 'https://capbck.herokuapp.com',
   firebase: {
-    apiKey: 'AIzaSyDXd0BOuPRsUMYQVMuQCAqk6coYO_4jqSk',
-    authDomain: 'capapp-3b2bf.firebaseapp.com',
-    projectId: 'capapp-3b2bf',
-    storageBucket: 'capapp-3b2bf.appspot.com',
-    messagingSenderId: '45035218192',
-    appId: '1:45035218192:web:081ce9a6914d9b7922f195',
+    apiKey: 'AIzaSyB2rj-c_3NDOeURne5G1kh_0eOPMjD9vXU',
+    authDomain: 'dg-store-app.firebaseapp.com',
+    projectId: 'dg-store-app',
+    storageBucket: 'dg-store-app.appspot.com',
+    messagingSenderId: '746034989067',
+    appId: '1:746034989067:web:6d4cc3be780c964166df0e',
+    measurementId: 'G-RMSQ7QS9X5',
   },
 };
