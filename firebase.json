@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "dgstore",
     "public": "dist/capApp",
     "ignore": [
       "firebase.json",
