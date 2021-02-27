@@ -14,6 +14,24 @@ const routes: Routes = [
     import('./catalogo/catalogo.module').then((m) => m.CatalogoModule),
   },
   {
+    path: 'ventas',
+    canActivate: [AdminGuard],
+    loadChildren: () =>
+    import('./sales/sales.module').then((m) => m.SalesModule),
+  },
+  {
+    path: 'compras',
+    canActivate: [AdminGuard],
+    loadChildren: () =>
+    import('./purchases/purchases.module').then((m) => m.PurchasesModule),
+  },
+  {
+    path: 'reportes',
+    canActivate: [AdminGuard],
+    loadChildren: () =>
+    import('./reports/reports.module').then((m) => m.ReportsModule),
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'

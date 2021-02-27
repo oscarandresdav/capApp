@@ -11,6 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -27,6 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}

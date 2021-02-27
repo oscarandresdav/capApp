@@ -3,13 +3,13 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>CapApp</mat-toolbar>
+    <mat-toolbar>DG Store</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/catalogo']" routerLinkActive="router-link-active" >Catalogo</a>
-      <a mat-list-item >Venta</a>
-      <a mat-list-item >Compra</a>
-      <a mat-list-item >Consulta</a>
-      <button mat-list-item (click)="logout()">Cerrar sesión</button>
+      <a mat-list-item [routerLink]="['/ventas']" routerLinkActive="router-link-active" >Venta</a>
+      <a mat-list-item [routerLink]="['/compras']" routerLinkActive="router-link-active" >Compra</a>
+      <a mat-list-item [routerLink]="['/reportes']" routerLinkActive="router-link-active">Reportes</a>
+      <a mat-list-item (click)="logout()">Cerrar sesión</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,7 +22,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <button mat-button (click)="mainPage()">Inventario</button>
+      <a (click)="mainPage()">Inicio</a>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
